@@ -1,0 +1,19 @@
+name: Docker Image CI
+
+on:
+  push:
+    tags: [ '*.*-*.*.*' ]
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: digitalsaleron/kafka
+  
+jobs:
+  build-kafka-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - uses: actions/checkout@v2
+    - name: Download kafka package
+    - name: Build the Docker image
