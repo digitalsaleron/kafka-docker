@@ -32,11 +32,11 @@ RUN apt-get update \
  && sync && /tmp/download-kafka.sh \
  && tar xfz /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz -C /opt \
  && rm /tmp/kafka_${SCALA_VERSION}-${KAFKA_VERSION}.tgz \
- && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME} \
- && rm /tmp/* \
+ && ln -s /opt/kafka_${SCALA_VERSION}-${KAFKA_VERSION} ${KAFKA_HOME}
+# && rm /tmp/* \
 # && wget https://github.com/sgerrand/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk \
 # && apk add --no-cache --allow-untrusted glibc-${GLIBC_VERSION}.apk \
- && rm glibc-${GLIBC_VERSION}.apk
+# && rm glibc-${GLIBC_VERSION}.apk
 
 COPY overrides /opt/overrides
 
